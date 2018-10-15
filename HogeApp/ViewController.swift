@@ -12,9 +12,14 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        let peachIcon = UIImage(named: "peach")?.withRenderingMode(.alwaysOriginal)
+        let barButtonItem = UIBarButtonItem(image: peachIcon, landscapeImagePhone: nil, style: .plain,
+                                            target: self, action: #selector((popView)))
+        
+        self.navigationItem.rightBarButtonItem = barButtonItem
     }
-
-
+    
+    @objc private func popView() {
+        navigationController?.popViewController(animated: true)
+    }
 }
-
